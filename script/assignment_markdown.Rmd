@@ -1,0 +1,71 @@
+---
+title: "my_markdown_doc"
+author: "Harry Potter"
+date: "2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r name}
+my_name <- "Harry"
+my_name
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r rnorm, echo=FALSE}
+plot(rnorm(1:1000))
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+## Messy Data: Workshop 1
+
+Load the `tidyverse` packages
+
+```{r tidyverse, message = FALSE}
+library(tidyverse)
+```
+
+Note that the `message = FALSE` parameter stops messages from `R` appearing in our document. 
+
+### DNA markers
+
+Data from [Identification and evaluation of age-correlated DNA methylation markers for forensic use](https://www.sciencedirect.com/science/article/pii/S1872497316300461?casa_token=qPk_jTQ4H5EAAAAA:Tu4wBtVyHzRAsB_7k3uIXsTqcsVucoVi7AvN54Evrue-Bw8CmK6CHraK0mjS-G4O7XF50V_cAI0)
+
+Read in the genomics data, remember this is set as a `.Rproj` so the path is **relative**
+
+```{r genomics}
+genomics <- read_csv("../data/dna_markers.csv")
+glimpse(genomics)
+```
+
+### Herbicide data
+
+Data from [Comparing biocontrol and herbicide for managing an invasive non‐native plant species: Efficacy, non‐target effects and secondary invasion](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2664.13691)
+
+Read in the data, it's a little more niggly as 
+
+ + it's in a multi sheet `.xlsx` file 
+     + we'll need the `read_xlsx()` function from the `readxl` package. One quick way of calling this function is by using `readxl::read_xlsx()`, see below
+     + use the `sheet` argument to choose which one you want to read in
+  + to get to the *data* we have to skip a few rows! In sheet 1 we have to skip 5, and keep the headers (use the `skip` argument to specify the number of rows you want to skip).
+  
+```{r herbicide, message = FALSE}
+biocontrol <- readxl::read_xlsx("../data/dicots_herbicides.xlsx", sheet = 1, skip = 5)
+biocontrol
+```
+
+## YOUR TURN change \& add to this base document and submit for grading using git!
