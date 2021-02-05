@@ -12,3 +12,6 @@ Each week you'll be expected to write-up your analysis of the data (based on wha
   + [R Markdown documents with RStudio](https://resources.github.com/whitepapers/github-and-rstudio/)
   + [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 
+## Copyright
+
+All files are (C)Copyright by the University of Auckland unless explicitly stated otherwise. Distrubution without prior written permission is prohibited.
