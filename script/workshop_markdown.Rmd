@@ -1,6 +1,6 @@
 ---
 title: "my_markdown_doc"
-author: "Harry Potter"
+author: "Ginny Potter"
 date: "2021"
 output: html_document
 ---
@@ -16,7 +16,7 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r name}
-my_name <- "Harry"
+my_name <- "Ginny"
 my_name
 ```
 
@@ -52,20 +52,7 @@ genomics <- read_csv("../data/dna_markers.csv")
 glimpse(genomics)
 ```
 
-### Herbicide data
-
-Data from [Comparing biocontrol and herbicide for managing an invasive non‐native plant species: Efficacy, non‐target effects and secondary invasion](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2664.13691)
-
-Read in the data, it's a little more niggly as 
-
- + it's in a multi sheet `.xlsx` file 
-     + we'll need the `read_xlsx()` function from the `readxl` package. One quick way of calling this function is by using `readxl::read_xlsx()`, see below
-     + use the `sheet` argument to choose which one you want to read in
-  + to get to the *data* we have to skip a few rows! In sheet 1 we have to skip 5, and keep the headers (use the `skip` argument to specify the number of rows you want to skip).
-  
-```{r herbicide, message = FALSE}
-biocontrol <- readxl::read_xlsx("../data/dicots_herbicides.xlsx", sheet = 1, skip = 5)
-biocontrol
-```
 
 ## YOUR TURN change \& add to this base document and submit for grading using git!
+
+## Your very exciting data?
